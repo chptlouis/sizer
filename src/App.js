@@ -19,6 +19,7 @@ function App() {
       ['NDQ100', 10],
       ['SPX500', 10],
       ['GER30', 10],
+      ['AUDCAD', 100000],
   ];
 
   return (
