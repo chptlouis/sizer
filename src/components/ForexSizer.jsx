@@ -94,7 +94,7 @@ function ForexSizer({ pairs }) {
                 <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                     <div>
                         <h3 style={{ textAlign: 'center' }}>Position Size</h3>
-                        <h1 style={{ textAlign: 'center' }}>{positionSize} lots</h1>
+                        <h1 style={{ textAlign: 'center' }}>{positionSize ? positionSize : '0'} lots</h1>
                     </div>
                     <div>
                         <h3 style={{ textAlign: 'center' }}>Money in risk</h3>
