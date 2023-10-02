@@ -4,15 +4,30 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 
 function App() {
+  const [newPair, setNewPair] = useState("");
+  const [newContractSize, setNewContractSize] = useState(0);
   // const [pairs, setPairs] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchPairs = async () => {
-  //     const res = await axios.get('http://localhost:3000/pairs');
-  //     setPairs(res.data);
-  //   }
-  //   fetchPairs();
-  // }, []);
+  useEffect(() => {
+    const fetchPairs = async () => {
+      // const res = await axios.get('http://localhost:3000/pairs');
+      // setPairs(res.data);
+    }
+    fetchPairs();
+  }, []);
+
+  const addPair = async () => {
+    const pair = {
+      id: pairs.length + 1,
+      name: newPair,
+      contractSize: newContractSize
+    }
+    await axios.post('http://localhost:3000/pairs', pair)
+    .then(res => {
+      console.log(res.data);
+      // setPairs([...pairs, res.data]);
+    });
+  }
 
   const pairs = [
       ['XAUUSD', 100],
@@ -35,7 +50,7 @@ function App() {
 
   return (
     <div>
-      <Header />
+      <Header addPair={addPair} setNewContractSize={setNewContractSize} setNewPair={setNewPair} />
       <div style={{display: 'flex', flexDirection: 'row', paddingTop: '100px', justifyContent: 'space-around'}}>
         <div style={{width: '50%'}}>
           <ForexSizer pairs={pairs} />
