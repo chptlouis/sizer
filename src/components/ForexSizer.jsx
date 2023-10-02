@@ -3,7 +3,8 @@ import { useState } from "react";
 import { FormControl, MenuItem, Select, Card, CardContent, TextField } from "@mui/material";
 
 function ForexSizer({ pairs }) {
-    const [pair, setPair] = useState('EURUSD');
+    // const [pair, setPair] = useState("");
+    const [pair, setPair] = useState("EURUSD");
     const [entryPrice, setEntryPrice] = useState(1);
     const [stopLoss, setStopLoss] = useState(1);
     const [risk, setRisk] = useState(0);
@@ -11,6 +12,9 @@ function ForexSizer({ pairs }) {
 
     const contractSize = useMemo(() => {
         for (let i = 0; i < pairs.length; i++) {
+            // if (pairs[i].name === pair) {
+            //     return pairs[i].contractSize;
+            // }
             if (pairs[i][0] === pair) {
                 return pairs[i][1];
             }
@@ -39,6 +43,9 @@ function ForexSizer({ pairs }) {
                         value={pair}
                         onChange={(e) => setPair(e.target.value)}
                     >
+                        {/* {pairs.map((pair) => (
+                            <MenuItem key={pair.id} value={pair.name}>{pair.name}</MenuItem>
+                        ))} */}
                         {pairs.map((pair, index) => (
                             <MenuItem key={index} value={pair[0]}>{pair[0]}</MenuItem>
                         ))}
