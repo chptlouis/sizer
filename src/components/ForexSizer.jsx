@@ -5,8 +5,8 @@ import { FormControl, MenuItem, Select, Card, CardContent, TextField } from "@mu
 function ForexSizer({ pairs }) {
     // const [pair, setPair] = useState("");
     const [pair, setPair] = useState("EURUSD");
-    const [entryPrice, setEntryPrice] = useState(1);
-    const [stopLoss, setStopLoss] = useState(1);
+    const [entryPrice, setEntryPrice] = useState();
+    const [stopLoss, setStopLoss] = useState();
     const [risk, setRisk] = useState(0);
     const [accountBalance, setAccountBalance] = useState(50000);
 
@@ -92,8 +92,13 @@ function ForexSizer({ pairs }) {
                         value={accountBalance}
                         onChange={(e) => setAccountBalance(e.target.value)}
                     >
-                        <MenuItem value={50000}>50000</MenuItem>
-                        <MenuItem value={100000}>100000</MenuItem>
+                        <MenuItem value={5000}>5000</MenuItem>
+                        <MenuItem value={10000}>10,000</MenuItem>
+                        <MenuItem value={20000}>20,000</MenuItem>
+                        <MenuItem value={25000}>25,000</MenuItem>
+                        <MenuItem value={50000}>50,000</MenuItem>
+                        <MenuItem value={100000}>100,000</MenuItem>
+                        <MenuItem value={200000}>200,000</MenuItem>
                     </Select>
                 </FormControl>
             </div>
