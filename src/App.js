@@ -46,6 +46,7 @@ function App() {
       ['SPX500', 10],
       ['GER30', 10],
       ['AUDCAD', 100000],
+      ['CRYPTO CFT', 1],
   ];
 
   return (
